@@ -11,6 +11,7 @@ Requirements:
     - numpy
 """
 
+import os
 import time
 
 import cv2
@@ -18,7 +19,10 @@ import mediapipe as mp
 import numpy as np
 
 # --- CONFIGURATION ---
-MODEL_PATH = '../../models/pose_landmarker_lite.task' # Ensure this file is in your folder!
+# Construct absolute path to model file
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(script_dir))
+MODEL_PATH = os.path.join(project_root, 'models', 'pose_landmarker_lite.task')
 GOOD_POSTURE_THRESHOLD = 15  # Degrees
 BAD_POSTURE_THRESHOLD = 35   # Degrees
 

@@ -1,11 +1,14 @@
+import os
 import cv2
 import mediapipe as mp
 import numpy as np
 import time
 
 # --- CONFIGURATION ---
-# Ensure this matches your downloaded file name exactly!
-MODEL_PATH = '../../models/pose_landmarker_lite.task' # Ensure this file is in your folder!
+# Construct absolute path to model file
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(script_dir))
+MODEL_PATH = os.path.join(project_root, 'models', 'pose_landmarker_lite.task')
 
 # --- SETUP ---
 BaseOptions = mp.tasks.BaseOptions
